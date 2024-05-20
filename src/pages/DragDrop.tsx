@@ -11,7 +11,6 @@ const DragDrop = () => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "box",
     drop(item: dragItemType, monitor) {
-      console.log(item)
       const delta = monitor.getDifferenceFromInitialOffset() as XYCoord;
       const left = Math.round(item.left + delta.x);
       const top = Math.round(item.top + delta.y);
@@ -28,21 +27,21 @@ const DragDrop = () => {
     <>
       <div>
         {picturesList.map((pic) => (
-          <Picture id={pic.id} top={pic.top} left={pic.left} svg={pic.svg} />
+          <Picture id={pic.id}  svg={pic.svg} />
         ))}
       </div>
       <div
         style={{
           width:1300,
-          height: 400,
+          height: '100vh',
           border: "1px solid black",
-          position: "relative",
+          position:'absolute',
         }}
         ref={drop}
       >
         {board.map((pic) => {
           return (
-            <Picture
+            <PictureDrop
               id={pic.id}
               top={pic.top}
               left={pic.left}

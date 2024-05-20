@@ -8,6 +8,8 @@ import Oval from "../svgs/oval.svg";
 import Rhmosbus from "../svgs/Rhombus.svg";
 import Arrow from "../svgs/arrow.svg";
 import LeftArrow from "../svgs/leftArrow.svg";
+import UpArrow from "../svgs/upArrow.svg";
+import DownArrow from "../svgs/dwonArrow.svg";
 
 export function classNames(
   ...classes: (string | undefined | null | false)[]
@@ -80,6 +82,20 @@ export const picturesList = [
     id: 6,
     name: "Arrow",
     svg: LeftArrow,
+    top:20,
+    left:80
+  },
+  {
+    id: 7,
+    name: "Arrow",
+    svg: UpArrow,
+    top:20,
+    left:80
+  },
+  {
+    id: 9,
+    name: "Arrow",
+    svg: DownArrow,
     top:20,
     left:80
   },

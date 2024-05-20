@@ -1,11 +1,24 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import { AppProps } from "../types";
-const style: CSSProperties = {
-  position: "absolute",
-  cursor: "move",
-};
+import { useDrag } from "@use-gesture/react";
 const PictureDrop = ({ id, top, left, svg }: AppProps) => {
-  return <img src={svg} width={150} style={{ ...style, top, left }} />;
+  const [picPosition, setPicPosition] = useState({ top, left });
+  const pindPic = useDrag((params: any) => {
+    setPicPosition({ top: params.offset[1], left: params.offset[0] });
+  });
+  return (
+    <div
+      {...pindPic()}
+      style={{
+        position: "relative",
+        top: picPosition.top,
+        left: picPosition.left,
+        cursor: "move",
+      }}
+    >
+      <img src={svg} width={150} />
+    </div>
+  );
 };
 
 export default PictureDrop;
